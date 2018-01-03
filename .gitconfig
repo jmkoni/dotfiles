@@ -1,0 +1,56 @@
+[alias]
+  smu = submodule update
+  smi = submodule init
+  sms = submodule sync
+  cm = commit -m
+  s = status -s
+  sl = status
+  a = add
+  b = branch
+  aa= !git add -u && git add . && git status
+  au = !git add -u && git status
+  p = pull --rebase
+  co = checkout
+  cob = checkout -b
+  dev = !git checkout dev && git pull --rebase
+  rel = !git checkout release && git pull --rebase
+  mdev = merge dev
+  up = !git fetch origin && git rebase origin/master
+  ir = !git rebase -i origin/development
+  done = !git fetch && git rebase origin/development && rake spec && git push
+  who = shortlog -n -s --no-merges
+  cleanup = !git remote prune origin && git gc && git clean -dfx && git stash clear
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  fl = log -u
+  dl = "!git ll -1"
+  dlc = diff --cached HEAD^
+  dr  = "!f() { git diff "$1"^.."$1"; }; f"
+  lc  = "!f() { git ll "$1"^.."$1"; }; f"
+  diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+  la = "!git config -l | grep alias | cut -c 7-"
+  cp = cherry-pick
+# pi = "git push -u origin/"$1
+[push]
+	default = current
+[core]
+	editor = /usr/bin/vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[mergetool]
+	path = nvim
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
