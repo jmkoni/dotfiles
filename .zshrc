@@ -123,7 +123,21 @@ export TTC_APIKEYS=true
 # Refresh the dashboard every 20 minutes.
 export TTC_UPDATE_INTERVAL=20
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/Users/jkonikow/bin:/opt/local/bin:/Users/jennifer/.rvm/bin:/Users/jennifer/.vimpkg/bin
+# Twitter api keys
+export TTC_CONSUMER_KEY='secret'
+export TTC_CONSUMER_SECRET='secret'
+export TTC_ACCESS_TOKEN='secret'
+export TTC_ACCESS_TOKEN_SECRET='secret'
+
+# lunchy
+LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
+if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
+  . $LUNCHY_DIR/lunchy-completion.zsh
+fi
+
+alias postgres-server="sudo -u postgres pg_ctl -D /Library/PostgreSQL/data"
+
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:/Users/jkonikow/bi    n:/opt/local/bin:/Users/jennifer/.rvm/bin:/Users/jennifer/.vimpkg/bin:$HOME/.cargo/bin
 
 eval $(thefuck --alias)
 unalias tldr
