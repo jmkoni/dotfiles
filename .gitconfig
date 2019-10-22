@@ -3,6 +3,7 @@
   smi = submodule init
   sms = submodule sync
   cm = commit -m
+  ca = commit --amend
   s = status -s
   sl = status
   a = add
@@ -10,8 +11,11 @@
   aa= !git add -u && git add . && git status
   au = !git add -u && git status
   p = pull --rebase
+  rem = rebase master
+  rc = rebase --continue
   co = checkout
   cob = checkout -b
+  com = checkout master
   dev = !git checkout dev && git pull --rebase
   rel = !git checkout release && git pull --rebase
   mdev = merge dev
@@ -32,12 +36,14 @@
   diffr  = "!f() { git diff "$1"^.."$1"; }; f"
   la = "!git config -l | grep alias | cut -c 7-"
   cp = cherry-pick
+  pf = push -f
+  acpf = !git add . && git commit --amend && git push -f
 # pi = "git push -u origin/"$1
 [push]
 	default = current
 [core]
 	editor = /usr/bin/vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = diff-so-fancy | less --tabs=2 -RFX
 [mergetool]
 	path = nvim
 [color]
