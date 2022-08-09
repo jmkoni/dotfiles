@@ -1,2 +1,2 @@
 # dotfiles
-Dotfiles for Ruby/Scala development on a Mac. Ever evolving.
+Dotfiles for Ruby/Go development on a Mac. Ever evolving.
